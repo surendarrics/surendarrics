@@ -176,3 +176,11 @@ textarea{
         font-weight: 300;
     }
 }
+
+
+@media screen and (max-width: 850px) {
+    .contact-page .text-zone {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
