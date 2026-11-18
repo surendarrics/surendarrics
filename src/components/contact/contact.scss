@@ -140,3 +140,39 @@ textarea{
 
 
  
+
+.contact-page .contact-links {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0 0;
+
+    li {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        width: auto;
+        margin-bottom: 16px;
+        opacity: 0;
+        animation: fadeInUp 1s 1.6s forwards;
+        overflow: visible;
+        flex-direction: row;
+        border-radius: 0;
+    }
+
+    .flat-button {
+        position: static;
+        float: none;
+        margin-top: 0;
+        min-width: 130px;
+        text-align: center;
+        border-radius: 20px;
+        letter-spacing: 3px;
+    }
+
+    span {
+        color: azure;
+        font-family: sans-serif;
+        font-size: 13px;
+        font-weight: 300;
+    }
+}
