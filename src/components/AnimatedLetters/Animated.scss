@@ -27,3 +27,10 @@
         animation-delay: #{$i / 10}s;
     }
 }
+
+// longer headings: keep the stagger going without delaying the last letters too long
+@for $i from 36 through 80 {
+    .text-animate._#{$i} {
+        animation-delay: #{3.5 + ($i - 35) / 50}s;
+    }
+}
