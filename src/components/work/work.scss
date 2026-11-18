@@ -1,0 +1,163 @@
+.container.work-page {
+  width: 100vw !important;
+  left: 0;
+}
+
+.work-page {
+  .flat-button {
+    color: #ffd700;
+    border: 1px solid #ffd700;
+    background: transparent;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    font-family: sans-serif;
+    text-decoration: none;
+    padding: 9px 18px;
+    white-space: nowrap;
+    border-radius: 999px;
+
+    &:hover {
+      background: #ffd700;
+      color: #333;
+    }
+  }
+
+  .text-zone {
+    position: absolute;
+    top: 120px;
+    left: 200px;
+    right: 6%;
+    max-height: 88%;
+    overflow-y: auto;
+    padding-right: 12px;
+
+    h1 {
+      font-size: 40px;
+      font-family: 'Coolvetica';
+      color: #ffd700;
+      font-weight: 400;
+      margin: 0 0 18px 14px;
+      position: relative;
+
+      &::before {
+        content: '<h1>';
+        font-family: 'La Belle Aurore';
+        font-size: 18px;
+        position: absolute;
+        margin-top: -10px;
+        left: -10px;
+        opacity: 0.6;
+        line-height: 18px;
+      }
+      &::after {
+        content: '<h1/>';
+        font-family: 'La Belle Aurore';
+        font-size: 18px;
+        line-height: 18px;
+        position: absolute;
+        left: -30px;
+        bottom: -20px;
+        margin-left: 20px;
+        opacity: 0.6;
+      }
+    }
+
+    .intro,
+    .more {
+      color: azure;
+      font-family: sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      margin: 28px 0 24px;
+      animation: fadeIn 1s 1.1s backwards;
+    }
+    .more {
+      margin-top: 22px;
+      opacity: 0.8;
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      animation: fadeIn 1s 1.5s backwards;
+    }
+
+    .intro, .more, .work-card p, .work-card li {
+      white-space: normal;
+      min-width: 0;
+      width: auto;
+      overflow-wrap: anywhere;
+    }
+
+    .work-card {
+      border: 1px solid rgba(255, 215, 0, 0.35);
+      border-radius: 12px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      background: rgba(255, 255, 255, 0.03);
+      min-width: 0;
+
+      .kind {
+        font-size: 11px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #ffd700;
+        font-family: sans-serif;
+      }
+      h3 {
+        font-family: 'Coolvetica';
+        font-weight: 400;
+        font-size: 28px;
+        margin: 8px 0 4px;
+        color: #fff;
+      }
+      p {
+        color: azure;
+        font-family: sans-serif;
+        font-size: 13px;
+        line-height: 1.6;
+        font-weight: 300;
+        margin: 0 0 10px;
+      }
+      .meta {
+        opacity: 0.65;
+        font-size: 12px;
+      }
+      ul {
+        margin: 0 0 18px;
+        padding-left: 18px;
+        color: azure;
+        font-family: sans-serif;
+        font-size: 13px;
+        font-weight: 300;
+        line-height: 1.7;
+      }
+      .flat-button {
+        position: static;
+        align-self: flex-start;
+        margin-top: auto;
+        display: inline-block;
+        float: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .work-page .text-zone {
+    left: 20px;
+    right: 20px;
+    top: 110px;
+    width: calc(100vw - 40px);
+    right: auto;
+    transform: none;
+    max-height: calc(100vh - 130px);
+
+    .work-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+}

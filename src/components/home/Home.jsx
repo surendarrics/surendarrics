@@ -13,7 +13,7 @@ const Home = () => {
     const [letterClass, setLetterClass] = useState('text-animate')
     const nameArray = "urendar".split("")
     
-    const jobArray = "Web Developer".split("")
+    const jobArray = "App & Web Developer".split("")
 
     useEffect(()=>{
          setTimeout(() => {

@@ -37,14 +37,14 @@ const [showNav, setShowNav] = useState(false)
     <FontAwesomeIcon icon={faCogs} color="#4d4d4e"/>
     </NavLink>
 
-    {/* <NavLink exact="true" activeclassname="active" className="project-link" to="/project">
+    <NavLink exact="true" activeclassname="active" className="project-link" to="/work">
     <FontAwesomeIcon icon={faTasks} color="#4d4d4e"/>
-    </NavLink> */}
+    </NavLink>
 </nav>
 <ul className={showNav ? 'mobile-show': ''}>
 
     <li>
-        <a target="blank" rel="noreferrer" href="https://www.linkedin.com/in/surendarrics-%E2%99%AA-1b4199218">
+        <a target="blank" rel="noreferrer" href="https://www.linkedin.com/in/surendar-a-1b4199218/">
             <FontAwesomeIcon  icon={faLinkedin} color='#4d4d4e'/>
         </a>
         
@@ -55,7 +55,7 @@ const [showNav, setShowNav] = useState(false)
         </a>
     </li>
     <li>
-        <a target="blank" rel="noreferrer" href="https://www.instagram.com/surendarrics">
+        <a target="blank" rel="noreferrer" href="https://www.instagram.com/surendarcreates">
             <FontAwesomeIcon  icon={faInstagram} color='#4d4d4e'/>
         </a>
     </li>
@@ -71,4 +71,4 @@ const [showNav, setShowNav] = useState(false)
   )
 }
 
-export default Sidebar
+export default Sidebar

@@ -19,13 +19,13 @@ const Contact = () => {
 const form = useRef();
 
 const sendEmail = (e) => {
-  
+  e.preventDefault();
 
   emailjs.sendForm('service_2cb7ijp', 'template_ifvf70c', form.current, 'dxR4uzZJdXp-6_eGw')
     .then((result) => {
         console.log(result.text);
         setDone(true)
-        form.reset()
+        form.current.reset()
     }, (error) => {
         console.log(error.text);
     });
@@ -46,9 +46,9 @@ const sendEmail = (e) => {
         </h1>
 
         <p>
-  Feel free to drop an email or contact me on any of those 
-  <br/>social medias provided.<br/> 
-  I'm always intrested in new oppurtunities.
+  Tell me what you want to build, who it is for and when you
+  <br/>want it live. I will reply with questions or a fixed quote.<br/> 
+  You can also message me on Instagram or LinkedIn.
         </p>
         <div className="contact-form">
             <form  ref={form} onSubmit={sendEmail}>
@@ -86,4 +86,4 @@ const sendEmail = (e) => {
   )
 }
 
-export default Contact
+export default Contact

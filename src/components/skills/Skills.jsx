@@ -35,16 +35,16 @@ const Skills = () => {
     idx={15}
     />
 </h1>
-<p>Nodejs, ExpressJS, MongoDb</p>
+<p>Supabase, Nodejs, ExpressJS, MongoDb</p>
 
 <h1>
     <Animated
     letterClass={letterClass}
-    strArray={("Languages").split("")} 
+    strArray={("Mobile").split("")} 
     idx={15}
     />
 </h1>
-<p>Javascript, Python.</p>
+<p>Flutter (Android and iOS from one codebase).</p>
        </div>
         </div>
 <Loader type='pacman'/>
@@ -52,4 +52,4 @@ const Skills = () => {
   )
 }
 
-export default Skills
+export default Skills

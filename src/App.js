@@ -7,7 +7,7 @@ import Home from './components/home/Home.jsx';
 import About from './components/about/About.jsx';
 import Contact from './components/contact/Contact.jsx';
 import Skills from './components/skills/Skills.jsx';
-import Project from './components/projects/Project.jsx';
+import Work from './components/work/Work.jsx';
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
     <Route path='/about' element={<About/>} />
     <Route path='/contact' element={<Contact/>} />
     <Route path='/skills' element={<Skills/>} />
-    {/* <Route path='/project' element={<Project/>} /> */}
+    <Route path='/work' element={<Work/>} />
    </Routes>
    </>
   );

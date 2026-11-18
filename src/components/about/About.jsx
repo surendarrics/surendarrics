@@ -31,9 +31,9 @@ const About = () => {
     idx={15}
     />
 </h1>
-<p>I'm an Ambitious Web developer who's currently looking for <br/> an internship.</p>
-<p>Quite confident person who's always curious and perpetually <br/> working on improving my skills everyday.</p>
-<p> gym enthusiast, Football fanatic and tech-obsessed!!!</p>
+<p>I build mobile apps and websites for startups and small <br/> businesses at a fixed price, with a working demo every week.</p>
+<p>I handle the Play Store and App Store launch, and I teach app <br/> building and freelancing on Instagram (@surendarcreates).</p>
+<p>Gym enthusiast, football fanatic and tech-obsessed.</p>
  </div>
        </div>
 <>
@@ -71,4 +71,4 @@ const About = () => {
   )
 }
 
-export default About
+export default About
