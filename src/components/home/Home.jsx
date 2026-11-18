@@ -1,12 +1,10 @@
 import React, {useState} from 'react'
 import './home.scss'
-import logo from '../../assets/images/karuppu thangam.png'
 import { Link } from 'react-router-dom'
 import Layout from '../layout/Layout'
 import Animated from '../AnimatedLetters/Animated'
 import { useEffect } from 'react'
 import Logo from './logo/Logo'
-import Sidebar from '../sidebar/Sidebar'
 import Loader from 'react-loaders'
 
 const Home = () => {

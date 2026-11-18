@@ -2,12 +2,10 @@ import React, { useRef } from 'react'
 import './logo.scss'
 import Logos from '../../../assets/images/karuppu thangam.png'
 import { useEffect } from 'react'
-import { faGasPump } from '@fortawesome/free-solid-svg-icons'
 import gsap from 'gsap-trial'
 
 const Logo = () => {
  const bgRef = useRef()
- const outlineLogoRef = useRef()
  const solidLogoRef = useRef()
 
 useEffect(()=>{
@@ -29,7 +27,7 @@ opacity:0,
 
   return (
     <div className='logo-container' ref={bgRef}>
-        <img ref={solidLogoRef} className='solid-image' src={Logos}/>
+        <img ref={solidLogoRef} className='solid-image' src={Logos} alt="Surendar logo"/>
     
     </div>
   )

@@ -5,7 +5,6 @@ import Layout from '../layout/Layout'
 import './contact.scss'
 const Contact = () => {
     const [letterClass, setLetterClass] = useState('text-animate')
-    const AboutArray = "About me".split("")
     
    useEffect(()=>{
      setTimeout(() => {
