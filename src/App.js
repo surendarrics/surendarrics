@@ -1,27 +1,14 @@
+import { Routes, Route } from 'react-router-dom'
+import F1Site from './f1/F1Site.jsx'
 
-
-import Layout from './components/layout/Layout.jsx'
-import './App.scss'
-import {Routes, Route} from 'react-router-dom'
-import Home from './components/home/Home.jsx';
-import About from './components/about/About.jsx';
-import Contact from './components/contact/Contact.jsx';
-import Skills from './components/skills/Skills.jsx';
-import Work from './components/work/Work.jsx';
-
+// One page. Old links like /about or /contact still work: they drive the car
+// straight to that part of the circuit.
 function App() {
   return (
-   <>
-   <Routes>
-    <Route path='/'   element={<Layout />} />
-    <Route index element={<Home/>}/>
-    <Route path='/about' element={<About/>} />
-    <Route path='/contact' element={<Contact/>} />
-    <Route path='/skills' element={<Skills/>} />
-    <Route path='/work' element={<Work/>} />
-   </Routes>
-   </>
-  );
+    <Routes>
+      <Route path="*" element={<F1Site />} />
+    </Routes>
+  )
 }
 
-export default App;
+export default App
