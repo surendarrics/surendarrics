@@ -25,12 +25,16 @@
 
   .text-zone {
     position: absolute;
-    top: 120px;
+    top: 80px;
+    bottom: 0;
     left: 200px;
     right: 6%;
-    max-height: 88%;
+    max-height: none;
     overflow-y: auto;
     padding-right: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: safe center;
 
     h1 {
       font-size: 40px;
@@ -151,6 +155,8 @@
     left: 20px;
     right: 20px;
     top: 110px;
+    bottom: auto;
+    display: block;
     width: calc(100vw - 40px);
     right: auto;
     transform: none;
