@@ -160,6 +160,9 @@ padding-right: 2px;
         position: relative;
         z-index: 10;
     }
+    nav.mobile-show ~ .hamburger-icon{
+        display: none;
+    }
     .hamburger-icon, .close-icon{
         display: flex;
         position: fixed;
