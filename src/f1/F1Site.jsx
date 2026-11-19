@@ -496,7 +496,7 @@ export default function F1Site() {
               if (isBest) bestSecs[lap.sec] = split
               const el = secRefs.current[lap.sec]
               if (el) el.className = `sec-bar ${isBest ? 'purple' : 'yellow'}`
-              showToast(`S${lap.sec + 1}`, split, isBest ? 'purple' : 'yellow')
+              if (!lap.invalid) showToast(`S${lap.sec + 1}`, split, isBest ? 'purple' : 'yellow')
               lap.splits.push(split)
               lap.sec += 1
             }
@@ -1024,13 +1024,14 @@ export default function F1Site() {
         {/* SECTOR 2: SKILLS */}
         <section id="skills" data-nav="skills" className={sectionCls(byId.skills)} ref={setBlock('skills')}>
           <div className="sec-in">
-            <Head chip="Sector 2" s={2} title="Skills" sub="The timing tower. Everything I build with." />
+            <Head chip="Sector 2" s={2} title="Skills" sub="The timing tower. My current stack for apps, web and AI." />
             <div className="towers">
               {TOWERS.map((t, ti) => (
                 <div className="tower rv" key={t.title} style={{ '--d': `${ti * 110}ms` }}>
                   <div className="tower-head">
                     <span className="tw-flag" />
                     {t.title}
+                    {t.tag ? <span className="tw-new">{t.tag}</span> : null}
                   </div>
                   <ol>
                     {t.rows.map(([code, name, tag], i) => (

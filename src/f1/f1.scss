@@ -894,6 +894,15 @@ html.locked body {
       conic-gradient(#fff 25%, #111 0 50%, #fff 0 75%, #111 0) 0 0 / 7px 5px;
     border-radius: 1px;
   }
+  .tw-new {
+    margin-left: auto;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: #0b0d10;
+    background: $green;
+    padding: 2px 7px;
+    border-radius: 3px;
+  }
   ol {
     list-style: none;
     margin: 0;
