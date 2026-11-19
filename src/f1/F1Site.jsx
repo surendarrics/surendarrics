@@ -18,10 +18,11 @@ import { computeTrack } from './track'
 import { fmt } from './format'
 import Leaderboard from './Leaderboard'
 import { createEngine } from './engine'
-import { ALSO, BLOCKS, LINKS, NAV, PROFILE, TOWERS, WEEKEND, WORK } from './content'
+import { ALSO, BLOCKS, CONCEPTS, LINKS, NAV, PROFILE, TOWERS, WEEKEND, WORK } from './content'
+import PhoneMock from './PhoneMock'
 import './f1.scss'
 
-const PATHS = { '/about': 'about', '/skills': 'skills', '/work': 'work', '/contact': 'pit', '/finish': 'finish' }
+const PATHS = { '/about': 'about', '/skills': 'skills', '/work': 'work', '/concepts': 'garage', '/contact': 'pit', '/finish': 'finish' }
 const GEARS = [0, 70, 105, 140, 175, 210, 250, 295, 345]
 const LOOKAHEAD = { desktop: 950, mobile: 520 }
 
@@ -1072,6 +1073,7 @@ export default function F1Site() {
                   <div className="board-body">
                     <span className="board-kind">{w.kind}</span>
                     <h3>{w.name}</h3>
+                    <p className="board-headline">{w.headline}</p>
                     <p className="board-meta">{w.meta}</p>
                     <p className="board-sum">{w.summary}</p>
                     <ul>
@@ -1098,6 +1100,43 @@ export default function F1Site() {
         </section>
 
         {renderZone(zones[3])}
+
+        {/* SECTOR 2: GARAGE / CONCEPT BUILDS */}
+        <section id="garage" data-nav="garage" className={sectionCls(byId.garage)} ref={setBlock('garage')}>
+          <div className="sec-in">
+            <Head
+              chip="Sector 2 · Garage"
+              s={2}
+              title="Concept builds"
+              sub="Like concept cars: apps I would build for your type of business. These are concepts, not past client projects."
+            />
+            <div className="concepts">
+              {CONCEPTS.map((c, i) => (
+                <article className="concept rv" key={c.id} style={{ '--d': `${i * 110}ms` }}>
+                  <PhoneMock kind={c.id} />
+                  <div className="concept-body">
+                    <span className="concept-tag">Concept</span>
+                    <h3>{c.title}</h3>
+                    <p className="concept-for">For {c.for.charAt(0).toLowerCase() + c.for.slice(1)}</p>
+                    <ul>
+                      {c.points.map((pt) => (
+                        <li key={pt}>{pt}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
+              ))}
+            </div>
+            <div className="concept-cta rv">
+              <p>Different business? Tell me about it and I will sketch a concept for yours.</p>
+              <button type="button" className="btn btn-y" onClick={() => goTo('pit')}>
+                Talk about your app <FontAwesomeIcon icon={faArrowRight} />
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {renderZone(zones[4])}
 
         {/* SECTOR 3: PIT STOP / CONTACT */}
         <section id="pit" data-nav="pit" className={sectionCls(byId.pit)} ref={setBlock('pit')}>
@@ -1151,7 +1190,7 @@ export default function F1Site() {
           </div>
         </section>
 
-        {renderZone(zones[4])}
+        {renderZone(zones[5])}
 
         {/* FINISH */}
         <section

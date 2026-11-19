@@ -347,7 +347,7 @@ export function computeTrack({ blocks, W, vh, docH, mobile }) {
   const L0 = lengthAtY(y0)
   const Lf = lengthAtY(yEnd)
   const byId = Object.fromEntries(blocks.map((b) => [b.id, b]))
-  const sectorEnds = [lengthAtY(byId.about.bottom), lengthAtY(byId.work.bottom), Lf]
+  const sectorEnds = [lengthAtY(byId.about.bottom), lengthAtY(byId.garage.bottom), Lf]
 
   // sub-paths for the minimap, one per sector
   const sub = (from, to) => {

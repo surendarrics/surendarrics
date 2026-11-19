@@ -16,10 +16,12 @@ export const BLOCKS = [
   { id: 'skills', kind: 'section', road: 'right' },
   { id: 'z3', kind: 'zone', shape: 'hairpins', name: 'Kochi Loops', word: 'LOOPS' },
   { id: 'work', kind: 'section', road: 'left' },
+  { id: 'zg', kind: 'zone', shape: 'esses', name: 'Garage Esses', word: 'GARAGE' },
+  { id: 'garage', kind: 'section', road: 'right' },
   { id: 'z4', kind: 'zone', shape: 'straight', name: 'Collierville Straight', word: 'DRS' },
-  { id: 'pit', kind: 'section', road: 'right' },
+  { id: 'pit', kind: 'section', road: 'left' },
   { id: 'z5', kind: 'zone', shape: 'esses', name: 'Final Chicane', word: 'CHICANE' },
-  { id: 'finish', kind: 'section', road: 'left' },
+  { id: 'finish', kind: 'section', road: 'right' },
 ]
 
 export const NAV = [
@@ -27,6 +29,7 @@ export const NAV = [
   { id: 'about', label: 'About', s: 1 },
   { id: 'skills', label: 'Skills', s: 2 },
   { id: 'work', label: 'Work', s: 2 },
+  { id: 'garage', label: 'Concepts', s: 2 },
   { id: 'pit', label: 'Pit stop', s: 3 },
 ]
 
@@ -102,9 +105,10 @@ export const TOWERS = [
 export const WORK = [
   {
     name: 'Ivorah',
+    headline: 'The A–Z interior design app',
     kind: 'Client project app',
     meta: 'Interior design and remodeling · Collierville, Tennessee, USA',
-    summary: 'Clients follow a whole renovation from one place instead of long email chains.',
+    summary: 'Every step of a renovation in one app, so clients follow it all from one place instead of long email chains.',
     points: [
       'Private dashboard with design approvals and milestones',
       'Payments, progress photos and team details',
@@ -115,6 +119,7 @@ export const WORK = [
   },
   {
     name: 'Tenlly',
+    headline: 'The 10-minute food delivery app',
     kind: 'Cloud kitchen app',
     meta: 'Food delivery · Kakkanad, Kochi, India',
     summary: 'A kitchen that cooks and delivers its own food, with ordering built to be fast.',
@@ -129,3 +134,52 @@ export const WORK = [
 ]
 
 export const ALSO = ['Wedding invitation app', 'Business management app']
+
+// Concept builds: ideas for common businesses. Clearly labelled as concepts on
+// the page, never presented as client work.
+export const CONCEPTS = [
+  {
+    id: 'clinic',
+    title: 'Clinic booking app',
+    for: 'Clinics, dentists and physios',
+    points: [
+      'Patients book by doctor and time slot',
+      'Automatic reminders before every visit',
+      'Online payments and digital prescriptions',
+      'A daily schedule dashboard for doctors',
+    ],
+  },
+  {
+    id: 'restaurant',
+    title: 'Restaurant ordering app',
+    for: 'Restaurants, cafés and cloud kitchens',
+    points: [
+      'QR menu at the table, ordering from the phone',
+      'Delivery and pickup with live order tracking',
+      'Loyalty points that bring customers back',
+      'Live kitchen screen for incoming orders',
+    ],
+  },
+  {
+    id: 'studio',
+    title: 'Salon & studio booking app',
+    for: 'Salons, gyms and fitness studios',
+    points: [
+      'Book services or classes in a few taps',
+      'Memberships and subscriptions with in-app payments',
+      'Staff and trainer schedules in one place',
+      'Reminders and rebooking for regulars',
+    ],
+  },
+  {
+    id: 'property',
+    title: 'Property management app',
+    for: 'Landlords and property managers',
+    points: [
+      'Tenants pay rent online',
+      'Maintenance requests with photos and status',
+      'Owner dashboard for every unit',
+      'An AI assistant that answers common tenant questions',
+    ],
+  },
+]
