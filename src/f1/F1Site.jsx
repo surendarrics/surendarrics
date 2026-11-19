@@ -15,6 +15,8 @@ import {
 import { faGithub, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import logo from '../assets/images/karuppu thangam.png'
 import { computeTrack } from './track'
+import { fmt } from './format'
+import Leaderboard from './Leaderboard'
 import { createEngine } from './engine'
 import { ALSO, BLOCKS, LINKS, NAV, PROFILE, TOWERS, WEEKEND, WORK } from './content'
 import './f1.scss'
@@ -40,13 +42,6 @@ const store = {
   },
 }
 
-const fmt = (ms) => {
-  if (ms == null || !isFinite(ms)) return '--:--.---'
-  const m = Math.floor(ms / 60000)
-  const s = Math.floor((ms % 60000) / 1000)
-  const r = Math.floor(ms % 1000)
-  return `${m}:${String(s).padStart(2, '0')}.${String(r).padStart(3, '0')}`
-}
 
 // Show each chunk of a path up to length `upto`. Chunks that are fully drawn or
 // fully hidden are only touched when they change state.
@@ -168,6 +163,9 @@ export default function F1Site() {
   const [sound, setSound] = useState(false)
   const [menu, setMenu] = useState(false)
   const [active, setActive] = useState('start')
+  const [lastLap, setLastLap] = useState(null)
+  const onLapRef = useRef(null)
+  onLapRef.current = setLastLap
 
   const skipIntro = () => {
     if (reduced.current || deepLink) return true
@@ -474,16 +472,27 @@ export default function F1Site() {
             lap.sec = 0
             lap.splits = []
             lap.secStart = now
+            lap.invalid = false
             secRefs.current.forEach((el) => el && (el.className = 'sec-bar'))
           }
           if (lap.state === 'run') {
+            // Track limits: jumping ahead (End key, scrollbar drag, menu or map
+            // jump) leaves the car far behind the page. That lap doesn't count.
+            if (!lap.invalid && target - carL > g.vh * 2.6) {
+              lap.invalid = true
+              if (toastRef.current) {
+                toastRef.current.textContent = 'TRACK LIMITS · LAP DELETED'
+                toastRef.current.className = 'toast show red'
+                toastT = now
+              }
+            }
             const t = now - lap.t0
             if (lapRef.current) lapRef.current.textContent = fmt(t)
             while (lap.sec < 3 && carL >= g.sectorEnds[lap.sec] - (lap.sec === 2 ? 20 : 6)) {
               const split = now - lap.secStart
               lap.secStart = now
               const best = bestSecs[lap.sec]
-              const isBest = !best || split < best
+              const isBest = !lap.invalid && (!best || split < best)
               if (isBest) bestSecs[lap.sec] = split
               const el = secRefs.current[lap.sec]
               if (el) el.className = `sec-bar ${isBest ? 'purple' : 'yellow'}`
@@ -494,6 +503,19 @@ export default function F1Site() {
             if (lap.sec >= 3) {
               lap.state = 'done'
               const total = now - lap.t0
+              if (lap.invalid) {
+                if (lapRef.current) lapRef.current.textContent = fmt(total)
+                if (lapResultRef.current) {
+                  lapResultRef.current.textContent = fmt(total)
+                  lapResultRef.current.className = 'lap-v deleted'
+                }
+                if (lapNoteRef.current) {
+                  lapNoteRef.current.textContent =
+                    'Track limits: lap deleted. Drive the whole circuit without skipping ahead to set a time.'
+                  lapNoteRef.current.className = 'lap-note red'
+                }
+                if (finishRef.current) finishRef.current.classList.add('flagged')
+              } else {
               const pb = !bestLap || total < bestLap
               if (pb) bestLap = total
               store.set('sur-f1-best', String(Math.round(bestLap)))
@@ -505,6 +527,9 @@ export default function F1Site() {
                 lapNoteRef.current.className = pb ? 'lap-note purple' : 'lap-note'
               }
               if (finishRef.current) finishRef.current.classList.add('flagged')
+              if (lapResultRef.current) lapResultRef.current.className = 'lap-v'
+              if (onLapRef.current) onLapRef.current(total)
+              }
             }
           }
           if (lap.state === 'done' && carL < g.L0 + 12) {
@@ -1142,6 +1167,7 @@ export default function F1Site() {
               <FontAwesomeIcon icon={faFlagCheckered} />
             </div>
             <h2 className="finish-title rv">Chequered flag</h2>
+            <div className="podium">
             <div className="lap-card rv">
               <span className="lap-k">Your lap</span>
               <span className="lap-v" ref={lapResultRef}>
@@ -1150,6 +1176,8 @@ export default function F1Site() {
               <span className="lap-note" ref={lapNoteRef}>
                 Drive the whole circuit to set a time.
               </span>
+            </div>
+            <Leaderboard lastLap={lastLap} />
             </div>
             <p className="finish-cta rv">Your app could be the next one across the line.</p>
             <div className="hero-cta rv">

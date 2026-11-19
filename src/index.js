@@ -1,20 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/react'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// Fonts are bundled with the site (no Google Fonts request)
+import '@fontsource/titillium-web/400'
+import '@fontsource/titillium-web/600'
+import '@fontsource/titillium-web/700'
+import '@fontsource/titillium-web/900'
+import '@fontsource/titillium-web/600-italic'
+import '@fontsource/titillium-web/700-italic'
+import '@fontsource/chakra-petch/500'
+import '@fontsource/chakra-petch/600'
+import '@fontsource/chakra-petch/700'
+
+import './index.css'
+import App from './App'
+
+const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-    <App />
+      <App />
     </BrowserRouter>
+    <Analytics />
   </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+)
