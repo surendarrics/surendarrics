@@ -1143,6 +1143,99 @@ html.locked body {
   }
 }
 
+.samples {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.sample {
+  background: linear-gradient(160deg, rgba(20, 38, 58, 0.85), rgba(8, 16, 26, 0.92));
+  border: 1px solid $line;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: border-color 0.35s, transform 0.35s $ease;
+  &:hover {
+    border-color: rgba(255, 215, 0, 0.45);
+    transform: translateY(-4px);
+    .sample-shot img {
+      transform: scale(1.03);
+    }
+  }
+}
+.sample-shot {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 8.2;
+  overflow: hidden;
+  padding-top: 22px;
+  background: #1a2533;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.6s $ease;
+  }
+}
+.sample-browser {
+  position: absolute;
+  top: 7px;
+  left: 10px;
+  display: flex;
+  gap: 5px;
+  i {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+  }
+}
+.sample-body {
+  padding: 18px 22px 24px;
+  h3 {
+    margin: 8px 0 2px;
+    font-size: 30px;
+    font-weight: 900;
+    font-style: italic;
+  }
+  ul {
+    margin: 12px 0 20px;
+    padding: 0;
+    list-style: none;
+    li {
+      position: relative;
+      padding: 5px 0 5px 20px;
+      font-size: 15px;
+      color: #c7d2de;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 13px;
+        width: 10px;
+        height: 2px;
+        background: $y;
+        transform: skewX(-20deg);
+      }
+    }
+  }
+}
+.sample-tag {
+  display: inline-block;
+  font: 700 10px $mono;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $s2;
+  border: 1px solid rgba(53, 196, 255, 0.5);
+  border-radius: 3px;
+  padding: 2px 7px;
+}
+.sample-kind {
+  margin: 0;
+  font-size: 14px;
+  color: $mute;
+}
+
 /* phone mockups (generic shapes, not real screens) */
 .phone {
   --acc: #35c4ff;
@@ -2104,7 +2197,8 @@ html.locked body {
   .boards,
   .crew,
   .towers,
-  .concepts {
+  .concepts,
+  .samples {
     grid-template-columns: 1fr;
   }
 }

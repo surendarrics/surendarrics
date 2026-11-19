@@ -29,7 +29,7 @@ export const NAV = [
   { id: 'about', label: 'About', s: 1 },
   { id: 'skills', label: 'Skills', s: 2 },
   { id: 'work', label: 'Work', s: 2 },
-  { id: 'garage', label: 'Concepts', s: 2 },
+  { id: 'garage', label: 'Samples', s: 2 },
   { id: 'pit', label: 'Pit stop', s: 3 },
 ]
 
@@ -135,8 +135,7 @@ export const WORK = [
 
 export const ALSO = ['Wedding invitation app', 'Business management app']
 
-// Concept builds: ideas for common businesses. Clearly labelled as concepts on
-// the page, never presented as client work.
+// App ideas to build later (not shown on the site until they are built).
 export const CONCEPTS = [
   {
     id: 'clinic',
@@ -180,6 +179,38 @@ export const CONCEPTS = [
       'Maintenance requests with photos and status',
       'Owner dashboard for every unit',
       'An AI assistant that answers common tenant questions',
+    ],
+  },
+]
+
+// Sample websites: fictional businesses, real working sites in /public/demos.
+export const SAMPLES = [
+  {
+    id: 'clinic',
+    name: 'Northvale Health',
+    kind: 'Clinic website',
+    for: 'For clinics, dentists and physios',
+    href: '/demos/clinic/',
+    img: '/demos/clinic/preview.jpg',
+    alt: 'Northvale Health demo website: a family clinic homepage with photo tiles for each service',
+    points: [
+      'Book a visit in four steps: service, day, time, details',
+      'Photo tiles that jump straight into booking',
+      'Clear prices, opening hours and answers to common questions',
+    ],
+  },
+  {
+    id: 'restaurant',
+    name: 'Pepper Coast',
+    kind: 'Restaurant website',
+    for: 'For restaurants, cafés and cloud kitchens',
+    href: '/demos/restaurant/',
+    img: '/demos/restaurant/preview.jpg',
+    alt: 'Pepper Coast demo website: a South Indian restaurant homepage with a full-screen food photo',
+    points: [
+      'Menu with a working cart for delivery or collection',
+      'Table booking with party size, day and time',
+      'Bold colour blocks, big food photos and live open or closed status',
     ],
   },
 ]

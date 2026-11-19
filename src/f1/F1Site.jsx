@@ -18,11 +18,10 @@ import { computeTrack } from './track'
 import { fmt } from './format'
 import Leaderboard from './Leaderboard'
 import { createEngine } from './engine'
-import { ALSO, BLOCKS, CONCEPTS, LINKS, NAV, PROFILE, TOWERS, WEEKEND, WORK } from './content'
-import PhoneMock from './PhoneMock'
+import { ALSO, BLOCKS, LINKS, NAV, PROFILE, SAMPLES, TOWERS, WEEKEND, WORK } from './content'
 import './f1.scss'
 
-const PATHS = { '/about': 'about', '/skills': 'skills', '/work': 'work', '/concepts': 'garage', '/contact': 'pit', '/finish': 'finish' }
+const PATHS = { '/about': 'about', '/skills': 'skills', '/work': 'work', '/concepts': 'garage', '/samples': 'garage', '/contact': 'pit', '/finish': 'finish' }
 const GEARS = [0, 70, 105, 140, 175, 210, 250, 295, 345]
 const LOOKAHEAD = { desktop: 950, mobile: 520 }
 
@@ -1101,36 +1100,48 @@ export default function F1Site() {
 
         {renderZone(zones[3])}
 
-        {/* SECTOR 2: GARAGE / CONCEPT BUILDS */}
+        {/* SECTOR 2: GARAGE / SAMPLE WEBSITES */}
         <section id="garage" data-nav="garage" className={sectionCls(byId.garage)} ref={setBlock('garage')}>
           <div className="sec-in">
             <Head
               chip="Sector 2 · Garage"
               s={2}
-              title="Concept builds"
-              sub="Like concept cars: apps I would build for your type of business. These are concepts, not past client projects."
+              title="Sample websites"
+              sub="Fictional businesses, real working websites. Open them and try the booking, menu and ordering."
             />
-            <div className="concepts">
-              {CONCEPTS.map((c, i) => (
-                <article className="concept rv" key={c.id} style={{ '--d': `${i * 110}ms` }}>
-                  <PhoneMock kind={c.id} />
-                  <div className="concept-body">
-                    <span className="concept-tag">Concept</span>
-                    <h3>{c.title}</h3>
-                    <p className="concept-for">For {c.for.charAt(0).toLowerCase() + c.for.slice(1)}</p>
+            <div className="samples">
+              {SAMPLES.map((d, i) => (
+                <article className="sample rv" key={d.id} style={{ '--d': `${i * 120}ms` }}>
+                  <a className="sample-shot" href={d.href} target="_blank" rel="noreferrer" tabIndex={-1} aria-hidden="true">
+                    <img src={d.img} alt="" loading="lazy" />
+                    <span className="sample-browser">
+                      <i />
+                      <i />
+                      <i />
+                    </span>
+                  </a>
+                  <div className="sample-body">
+                    <span className="sample-tag">Demo website</span>
+                    <h3>{d.name}</h3>
+                    <p className="sample-kind">
+                      {d.kind}. {d.for}
+                    </p>
                     <ul>
-                      {c.points.map((pt) => (
+                      {d.points.map((pt) => (
                         <li key={pt}>{pt}</li>
                       ))}
                     </ul>
+                    <a className="btn btn-y sm" href={d.href} target="_blank" rel="noreferrer" aria-label={`Open the ${d.name} demo website`}>
+                      Open live demo <FontAwesomeIcon icon={faArrowRight} />
+                    </a>
                   </div>
                 </article>
               ))}
             </div>
             <div className="concept-cta rv">
-              <p>Different business? Tell me about it and I will sketch a concept for yours.</p>
-              <button type="button" className="btn btn-y" onClick={() => goTo('pit')}>
-                Talk about your app <FontAwesomeIcon icon={faArrowRight} />
+              <p>Want a website like this for your business?</p>
+              <button type="button" className="btn btn-o" onClick={() => goTo('pit')}>
+                Talk about your website <FontAwesomeIcon icon={faArrowRight} />
               </button>
             </div>
           </div>
